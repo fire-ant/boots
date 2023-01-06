@@ -319,7 +319,7 @@ func (d *K8sDiscoverer) InitrdPath(net.HardwareAddr) string {
 }
 func (d *K8sDiscoverer) OptionBootfileName(net.HardwareAddr) string {
 	for _, iface := range d.hw.Spec.Interfaces {
-		if iface.ZTP != nil && iface.Netboot.ZTP != nil {
+		if iface.ZTP != nil && iface.ZTP != nil {
 			return iface.ZTP.OptionBootfileName
 		}
 	}
@@ -329,7 +329,7 @@ func (d *K8sDiscoverer) OptionBootfileName(net.HardwareAddr) string {
 
 func (d *K8sDiscoverer) OptionBootfileURL(net.HardwareAddr) string {
 	for _, iface := range d.hw.Spec.Interfaces {
-		if iface.ZTP != nil && iface.Netboot.ZTP != nil {
+		if iface.ZTP != nil && iface.ZTP != nil {
 			return iface.ZTP.OptionBootfileURL
 		}
 	}
