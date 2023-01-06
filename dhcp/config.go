@@ -137,3 +137,54 @@ func (c *Config) SetOpt43SubOpt(subOpt dhcp4.Option, s string) {
 	n.SetOption(subOpt, []byte(s))
 	c.opts.SetOption(dhcp4.OptionVendorSpecific, n.Serialize())
 }
+
+// func (c *Config) Options(options) {
+// 	c.opts = make(dhcp4.OptionMap, 255)
+
+// 	if options.bootfile_url != nil {
+// 		c.opts.SetIP(dhcp4.OptionRebindingTime, options)
+// 	}
+// 	if server_name != nil {
+// 		c.opts.SetIP(dhcp4.OptionServerName, options)
+// 	}
+// 	if bootfile_name != nil {
+// 		c.opts.SetIP(dhcp4.OptionBootfileName, options)
+// 	}
+// }
+
+// func (c *Config) Netmask() net.IP {
+// 	nm, ok := c.opts.Get(dhcp4.OptionRebindingTime)
+// 	if !ok {
+// 		return nil
+// 	}
+
+//		return nm
+//	}
+func (c *Config) SetServerName() string {
+	sn, ok := c.opts.GetString(dhcp4.OptionServerName)
+	if !ok {
+		return ""
+	}
+
+	return sn
+}
+
+// func (c *Config) SetServerName(s string) {
+// 	if s == "" {
+// 		return
+// 	}
+// 	c.opts.SetOption(dhcp4.OptionServerName, s)
+// }
+
+// func (c *Config) SetRebindingTime(s string) {
+// 	if s == "" {
+// 		return
+// 	}
+// 	c.opts.SetString(dhcp4.OptionRebindingTime, s)
+// }
+// func (c *Config) setBootfileName(s string) {
+// 	if s == "" {
+// 		return
+// 	}
+// 	c.opts.SetString(dhcp4.OptionBootfileName, s)
+// }

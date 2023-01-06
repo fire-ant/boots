@@ -170,6 +170,14 @@ func (h HardwareTinkerbellV1) InitrdPath(mac net.HardwareAddr) string {
 	return h.Network.InterfaceByMac(mac).Netboot.OSIE.Initrd
 }
 
+func (h HardwareTinkerbellV1) OptionBootfileName(mac net.HardwareAddr) string {
+	return h.Network.InterfaceByMac(mac).Netboot.ZTP.OptionBootfileName
+}
+
+func (h HardwareTinkerbellV1) OptionBootfileURL(mac net.HardwareAddr) string {
+	return h.Network.InterfaceByMac(mac).Netboot.ZTP.OptionBootfileURL
+}
+
 func (h *HardwareTinkerbellV1) OperatingSystem() *client.OperatingSystem {
 	i := h.instance()
 	if i.OS == nil {

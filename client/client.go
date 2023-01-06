@@ -83,6 +83,8 @@ type Hardware interface {
 	HardwareUEFI(mac net.HardwareAddr) bool
 	GetVLANID(net.HardwareAddr) string
 	OSIEBaseURL(mac net.HardwareAddr) string
+	OptionBootfileName(mac net.HardwareAddr) string
+	OptionBootfileURL(mac net.HardwareAddr) string
 	KernelPath(mac net.HardwareAddr) string
 	InitrdPath(mac net.HardwareAddr) string
 	OperatingSystem() *OperatingSystem

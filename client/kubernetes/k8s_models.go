@@ -317,6 +317,25 @@ func (d *K8sDiscoverer) InitrdPath(net.HardwareAddr) string {
 
 	return ""
 }
+func (d *K8sDiscoverer) OptionBootfileName(net.HardwareAddr) string {
+	for _, iface := range d.hw.Spec.Interfaces {
+		if iface.ZTP != nil && iface.Netboot.ZTP != nil {
+			return iface.ZTP.OptionBootfileName
+		}
+	}
+
+	return ""
+}
+
+func (d *K8sDiscoverer) OptionBootfileURL(net.HardwareAddr) string {
+	for _, iface := range d.hw.Spec.Interfaces {
+		if iface.ZTP != nil && iface.Netboot.ZTP != nil {
+			return iface.ZTP.OptionBootfileURL
+		}
+	}
+
+	return ""
+}
 
 func (d *K8sDiscoverer) OperatingSystem() *client.OperatingSystem {
 	if d.hw.Spec.Metadata != nil && d.hw.Spec.Metadata.Instance != nil && d.hw.Spec.Metadata.Instance.OperatingSystem != nil {

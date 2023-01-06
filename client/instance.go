@@ -198,6 +198,7 @@ type Netboot struct {
 		Contents string `json:"contents"`
 	} `json:"ipxe"`
 	OSIE OSIE `json:"osie"`
+	ZTP  ZTP  `json:"ztp"`
 }
 
 // Bootstrapper is the bootstrapper to be used during netboot.
@@ -205,6 +206,13 @@ type OSIE struct {
 	BaseURL string `json:"base_url"`
 	Kernel  string `json:"kernel"`
 	Initrd  string `json:"initrd"`
+}
+
+// Bootstrapper is the bootstrapper to be used during netboot.
+type ZTP struct {
+	OptionBootfileURL  string `json:"bootfile_url"`
+	OptionBootfileName string `json:"bootfile_name"`
+	OptionServerName   string `json:"server_name"`
 }
 
 // Network holds hardware network details.

@@ -91,6 +91,14 @@ func (hs *HardwareStandalone) InitrdPath(net.HardwareAddr) string {
 	return hs.getPrimaryInterface().Netboot.OSIE.Initrd
 }
 
+func (hs *HardwareStandalone) OptionBootfileName(mac net.HardwareAddr) string {
+	return hs.getPrimaryInterface().Netboot.ZTP.OptionBootfileName
+}
+
+func (hs *HardwareStandalone) OptionBootfileURL(mac net.HardwareAddr) string {
+	return hs.getPrimaryInterface().Netboot.ZTP.OptionBootfileURL
+}
+
 func (hs *HardwareStandalone) OperatingSystem() *client.OperatingSystem {
 	return hs.Metadata.Instance.OS
 }

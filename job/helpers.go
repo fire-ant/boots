@@ -243,3 +243,18 @@ func (j Job) InitrdPath() string {
 
 	return ""
 }
+
+func (j Job) OptionBootfileURL() string {
+	if h := j.hardware; h != nil {
+		return j.hardware.OptionBootfileURL(j.mac)
+	}
+
+	return ""
+}
+func (j Job) OptionBootfileName() string {
+	if h := j.hardware; h != nil {
+		return j.hardware.OptionBootfileName(j.mac)
+	}
+
+	return ""
+}

@@ -368,6 +368,16 @@ func (h HardwareCacher) InitrdPath(net.HardwareAddr) string {
 	return ""
 }
 
+// dummy method for tink data model transition.
+func (h HardwareCacher) OptionBootfileURL(net.HardwareAddr) string {
+	return ""
+}
+
+// dummy method for tink data model transition.
+func (h HardwareCacher) OptionBootfileName(net.HardwareAddr) string {
+	return ""
+}
+
 func (h *HardwareCacher) OperatingSystem() *client.OperatingSystem {
 	i := h.instance()
 	if i.OSV == (*client.OperatingSystem)(nil) {
