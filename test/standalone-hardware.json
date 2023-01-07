@@ -7,6 +7,11 @@
         {
           "dhcp": {
             "mac": "02:00:00:00:00:ff",
+            "options": {
+              "bootfile_url": "google.com",
+              "bootfile_name": "google",
+              "server_name": "shite"
+            },
             "ip": {
               "address": "192.168.99.43",
               "netmask": "255.255.255.0",

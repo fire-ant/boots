@@ -22,13 +22,14 @@ networks:
 services:
   boots:
     build: .
-    # entrypoint: ["/usr/bin/boots", "--dhcp-addr", "0.0.0.0:67"]
-    entrypoint: ["/start-boots.sh"]
+    entrypoint: ["/usr/bin/boots", "--dhcp-addr", "0.0.0.0:67"]
+    # entrypoint: ["/start-boots.sh"]
     networks:
       boots-test:
         ipv4_address: 192.168.99.42
     mac_address: 02:00:00:00:00:01
     environment:
+      ASSUME_NO_MOVING_GC_UNSAFE_RISK_IT_WITH: go1.19
       DATA_MODEL_VERSION: standalone
       API_CONSUMER_TOKEN: none
       API_AUTH_TOKEN: none

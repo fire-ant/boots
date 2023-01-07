@@ -129,3 +129,14 @@ func (hs *HardwareStandalone) GetTraceparent() string {
 func (hs *HardwareStandalone) GetVLANID(net.HardwareAddr) string {
 	return ""
 }
+
+// Get Options from the config.
+func (hs *HardwareStandalone) GetBootFileURL(net.HardwareAddr) string {
+	return hs.getPrimaryInterface().DHCP.Options.BootFileURL
+}
+func (hs *HardwareStandalone) GetBootFileName(net.HardwareAddr) string {
+	return hs.getPrimaryInterface().DHCP.Options.BootFileName
+}
+func (hs *HardwareStandalone) GetServerName(net.HardwareAddr) string {
+	return hs.getPrimaryInterface().DHCP.Options.ServerName
+}

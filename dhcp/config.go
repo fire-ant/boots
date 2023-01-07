@@ -119,6 +119,33 @@ func (c *Config) SetDNSServers(ips []net.IP) {
 	c.opts.SetOption(dhcp4.OptionDomainServer, b)
 }
 
+func (c *Config) BootfileName() string {
+	bn, ok := c.opts.GetString(dhcp4.OptionBootfileName)
+	if !ok {
+		return ""
+	}
+
+	return bn
+}
+
+func (c *Config) BootfileURL() string {
+	bf, ok := c.opts.GetString(dhcp4.OptionRebindingTime)
+	if !ok {
+		return ""
+	}
+
+	return bf
+}
+
+func (c *Config) ServerName() string {
+	sn, ok := c.opts.GetString(dhcp4.OptionServerName)
+	if !ok {
+		return ""
+	}
+
+	return sn
+}
+
 // SetOpt43SubOpt sets an option 43 sub-option. If option 43 is already set, the sub-option is appended.
 func (c *Config) SetOpt43SubOpt(subOpt dhcp4.Option, s string) {
 	if s == "" {

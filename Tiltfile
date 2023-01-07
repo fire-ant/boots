@@ -3,9 +3,9 @@ local_resource(
   'make cmd/boots/boots-linux-amd64'
 )
 docker_build(
-    'quay.io/tinkerbell/boots',
+    'boots_boots',
     '.',
     dockerfile='Dockerfile',
     only=['./cmd/boots']
 )
-k8s_yaml(kustomize('./manifests/kustomize/overlays/kind'))
+docker_compose(['./docker-compose.yml'])

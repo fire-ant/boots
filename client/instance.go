@@ -187,6 +187,13 @@ type DHCP struct {
 	UEFI        bool     `json:"uefi"`
 	IfaceName   string   `json:"iface_name"` // to be removed?
 	VLANID      string   `json:"vlan_id"`
+	Options     Options  `json:"options"`
+}
+
+type Options struct {
+	BootFileURL  string `json:"bootfile_url"`
+	BootFileName string `json:"bootfile_name"`
+	ServerName   string `json:"server_name"`
 }
 
 // Netboot holds details for a hardware to boot over network.
